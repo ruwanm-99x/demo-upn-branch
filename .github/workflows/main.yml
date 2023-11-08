@@ -28,12 +28,3 @@ jobs:
         title: "Release ${{ steps.create_tag_release.outputs.TAG_NAME }}"
         body: "This PR is created automatically to release version ${{ steps.create_tag_release.outputs.TAG_NAME }}"
         labels: "automated-pr"
-
-    - name: Draft a release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: 
-          - # List the files you want to include in the release
-        draft: true
-        tag: ${{ steps.create_tag_release.outputs.TAG_NAME }}
-        token: ${{ secrets.GITHUB_TOKEN }}
